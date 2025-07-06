@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your EcoNudges</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🌿 Your Personalized EcoNudges for {{ location }}</h2>
+
+    <p style="color:#065f46;">
+      ☀️ Temp: {{ weather.temp }}°C |
+      🌤️ Sky: {{ weather.description }} |
+      🌫 AQI: {{ aqi }}
+    </p>
+
+    <ul>
+      {% for tip in nudges %}
+        <li>✅ {{ tip }}</li>
+      {% endfor %}
+    </ul>
+
+    <a href="/">← Back to Form</a>
+
+    <div class="quote">
+      “Small choices, made daily, can build a greener tomorrow.” 💚
+    </div>
+  </div>
+</body>
+</html>

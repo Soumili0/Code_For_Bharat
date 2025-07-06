@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EcoNudge Daily Routine Form</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌿 EcoNudge: Daily Eco-Friendly Routine</h1>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li style="color:red;"><strong>{{ message }}</strong></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <p><em>Answer a few quick questions and enter your location to get personalized eco nudges.</em></p>
+
+    <form action="/get_nudges" method="POST">
+
+      <label> Will you take a bath today?</label>
+      <div class="radio-group">
+        <input type="radio" name="bath" id="bath-yes" value="yes" required>
+        <label for="bath-yes">Yes</label>
+        <input type="radio" name="bath" id="bath-no" value="no">
+        <label for="bath-no">No</label>
+      </div>
+
+      <label> Will you wash clothes today?</label>
+      <div class="radio-group">
+        <input type="radio" name="laundry" id="laundry-yes" value="yes" required>
+        <label for="laundry-yes">Yes</label>
+        <input type="radio" name="laundry" id="laundry-no" value="no">
+        <label for="laundry-no">No</label>
+      </div>
+
+      <label> Will you use a vehicle today?</label>
+      <div class="radio-group">
+        <input type="radio" name="drive" id="drive-yes" value="yes" required>
+        <label for="drive-yes">Yes</label>
+        <input type="radio" name="drive" id="drive-no" value="no">
+        <label for="drive-no">No</label>
+      </div>
+
+      <label> Will you use AC today?</label>
+      <div class="radio-group">
+        <input type="radio" name="ac" id="ac-yes" value="yes" required>
+        <label for="ac-yes">Yes</label>
+        <input type="radio" name="ac" id="ac-no" value="no">
+        <label for="ac-no">No</label>
+      </div>
+
+      <label> Will you cook or eat meat today?</label>
+      <div class="radio-group">
+        <input type="radio" name="meat" id="meat-yes" value="yes" required>
+        <label for="meat-yes">Yes</label>
+        <input type="radio" name="meat" id="meat-no" value="no">
+        <label for="meat-no">No</label>
+      </div>
+
+      <label> Will you use high-power electric devices (iron/heater)?</label>
+      <div class="radio-group">
+        <input type="radio" name="devices" id="devices-yes" value="yes" required>
+        <label for="devices-yes">Yes</label>
+        <input type="radio" name="devices" id="devices-no" value="no">
+        <label for="devices-no">No</label>
+      </div>
+
+      <label> Will you buy packaged food or drink today?</label>
+      <div class="radio-group">
+        <input type="radio" name="packaged" id="packaged-yes" value="yes" required>
+        <label for="packaged-yes">Yes</label>
+        <input type="radio" name="packaged" id="packaged-no" value="no">
+        <label for="packaged-no">No</label>
+      </div>
+
+      <label> Will you recycle plastic or paper today?</label>
+      <div class="radio-group">
+        <input type="radio" name="recycle" id="recycle-yes" value="yes" required>
+        <label for="recycle-yes">Yes</label>
+        <input type="radio" name="recycle" id="recycle-no" value="no">
+        <label for="recycle-no">No</label>
+      </div>
+
+      <label> Will you go grocery shopping today?</label>
+      <div class="radio-group">
+        <input type="radio" name="shopping" id="shopping-yes" value="yes" required>
+        <label for="shopping-yes">Yes</label>
+        <input type="radio" name="shopping" id="shopping-no" value="no">
+        <label for="shopping-no">No</label>
+      </div>
+
+      <label> Will you spend time outdoors (walk/park)?</label>
+      <div class="radio-group">
+        <input type="radio" name="outdoors" id="outdoors-yes" value="yes" required>
+        <label for="outdoors-yes">Yes</label>
+        <input type="radio" name="outdoors" id="outdoors-no" value="no">
+        <label for="outdoors-no">No</label>
+      </div>
+
+      <label> Will you receive or send online packages?</label>
+      <div class="radio-group">
+        <input type="radio" name="shipping" id="shipping-yes" value="yes" required>
+        <label for="shipping-yes">Yes</label>
+        <input type="radio" name="shipping" id="shipping-no" value="no">
+        <label for="shipping-no">No</label>
+      </div>
+
+      <label> Will you work from home today?</label>
+      <div class="radio-group">
+        <input type="radio" name="wfh" id="wfh-yes" value="yes" required>
+        <label for="wfh-yes">Yes</label>
+        <input type="radio" name="wfh" id="wfh-no" value="no">
+        <label for="wfh-no">No</label>
+      </div>
+
+      <label> Enter your Indian City or 6-digit PIN Code:</label>
+      <input type="text" name="location" placeholder="e.g. Kolkata or 700001" required>
+
+      <button type="submit">🌱 Get My EcoNudges</button>
+    </form>
+  </div>
+
+</body>
+</html>

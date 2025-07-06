@@ -1,0 +1,141 @@
+/* 🌿 EcoNudge Stylesheet - Final Version */
+
+/* === Global === */
+body {
+  font-family: 'Segoe UI', 'Nunito', sans-serif;
+  background: linear-gradient(to right, #d1fae5, #f0fdf4);
+  margin: 0;
+  padding: 40px;
+  color: #065f46;
+}
+
+/* === Centered Container === */
+.container {
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 40px 50px;
+  text-align: center;
+}
+
+/* === Headings === */
+h1, h2 {
+  color: #047857;
+  margin-bottom: 25px;
+}
+
+/* === Form === */
+form {
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: #1e3a8a; /* Royal Blue */
+  font-size: 1.1rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* === Radio Button Styling (Black Buttons) === */
+.radio-group {
+  margin-bottom: 15px;
+}
+
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+.radio-group label {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.radio-group input[type="radio"]:checked + label {
+  background-color: #10b981; /* Green when selected */
+  color: white;
+}
+
+/* === Submit Button === */
+button {
+  background-color: #10b981;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 25px;
+}
+
+button:hover {
+  background-color: #059669;
+}
+
+/* === Nudges List === */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  text-align: left;
+}
+
+li {
+  background-color: #e6fffa;
+  margin-bottom: 12px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  position: relative;
+  padding-left: 40px;
+}
+
+li::before {
+  content: "✅";
+  position: absolute;
+  left: 15px;
+  top: 12px;
+}
+
+/* === Footer / Quotes === */
+.quote {
+  font-style: italic;
+  margin-top: 40px;
+  color: #064e3b;
+  font-size: 1rem;
+}
+
+/* === Back Link === */
+a {
+  display: inline-block;
+  margin-top: 30px;
+  color: #10b981;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+a:hover {
+  color: #059669;
+  text-decoration: underline;
+}
