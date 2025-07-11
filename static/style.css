@@ -3,7 +3,8 @@
 /* === Global === */
 body {
   font-family: 'Segoe UI', 'Nunito', sans-serif;
-  background: linear-gradient(to right, #d1fae5, #f0fdf4);
+  background: url('nature.jpg') no-repeat center center fixed;
+  background-size: cover;
   margin: 0;
   padding: 40px;
   color: #065f46;

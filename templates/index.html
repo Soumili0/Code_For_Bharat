@@ -1,132 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>EcoNudge Daily Routine Form</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoNudge 🌍</title>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-
   <div class="container">
-    <h1>🌿 EcoNudge: Daily Eco-Friendly Routine</h1>
+    <h1>EcoNudge 🌍</h1>
 
-    <!-- Flash messages -->
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-          {% for message in messages %}
-            <li style="color:red;"><strong>{{ message }}</strong></li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-
-    <p><em>Answer a few quick questions and enter your location to get personalized eco nudges.</em></p>
-
-    <form action="/get_nudges" method="POST">
-
-      <label> Will you take a bath today?</label>
-      <div class="radio-group">
-        <input type="radio" name="bath" id="bath-yes" value="yes" required>
-        <label for="bath-yes">Yes</label>
-        <input type="radio" name="bath" id="bath-no" value="no">
-        <label for="bath-no">No</label>
-      </div>
-
-      <label> Will you wash clothes today?</label>
-      <div class="radio-group">
-        <input type="radio" name="laundry" id="laundry-yes" value="yes" required>
-        <label for="laundry-yes">Yes</label>
-        <input type="radio" name="laundry" id="laundry-no" value="no">
-        <label for="laundry-no">No</label>
-      </div>
-
-      <label> Will you use a vehicle today?</label>
-      <div class="radio-group">
-        <input type="radio" name="drive" id="drive-yes" value="yes" required>
-        <label for="drive-yes">Yes</label>
-        <input type="radio" name="drive" id="drive-no" value="no">
-        <label for="drive-no">No</label>
-      </div>
-
-      <label> Will you use AC today?</label>
-      <div class="radio-group">
-        <input type="radio" name="ac" id="ac-yes" value="yes" required>
-        <label for="ac-yes">Yes</label>
-        <input type="radio" name="ac" id="ac-no" value="no">
-        <label for="ac-no">No</label>
-      </div>
-
-      <label> Will you cook or eat meat today?</label>
-      <div class="radio-group">
-        <input type="radio" name="meat" id="meat-yes" value="yes" required>
-        <label for="meat-yes">Yes</label>
-        <input type="radio" name="meat" id="meat-no" value="no">
-        <label for="meat-no">No</label>
-      </div>
-
-      <label> Will you use high-power electric devices (iron/heater)?</label>
-      <div class="radio-group">
-        <input type="radio" name="devices" id="devices-yes" value="yes" required>
-        <label for="devices-yes">Yes</label>
-        <input type="radio" name="devices" id="devices-no" value="no">
-        <label for="devices-no">No</label>
-      </div>
-
-      <label> Will you buy packaged food or drink today?</label>
-      <div class="radio-group">
-        <input type="radio" name="packaged" id="packaged-yes" value="yes" required>
-        <label for="packaged-yes">Yes</label>
-        <input type="radio" name="packaged" id="packaged-no" value="no">
-        <label for="packaged-no">No</label>
-      </div>
-
-      <label> Will you recycle plastic or paper today?</label>
-      <div class="radio-group">
-        <input type="radio" name="recycle" id="recycle-yes" value="yes" required>
-        <label for="recycle-yes">Yes</label>
-        <input type="radio" name="recycle" id="recycle-no" value="no">
-        <label for="recycle-no">No</label>
-      </div>
-
-      <label> Will you go grocery shopping today?</label>
-      <div class="radio-group">
-        <input type="radio" name="shopping" id="shopping-yes" value="yes" required>
-        <label for="shopping-yes">Yes</label>
-        <input type="radio" name="shopping" id="shopping-no" value="no">
-        <label for="shopping-no">No</label>
-      </div>
-
-      <label> Will you spend time outdoors (walk/park)?</label>
-      <div class="radio-group">
-        <input type="radio" name="outdoors" id="outdoors-yes" value="yes" required>
-        <label for="outdoors-yes">Yes</label>
-        <input type="radio" name="outdoors" id="outdoors-no" value="no">
-        <label for="outdoors-no">No</label>
-      </div>
-
-      <label> Will you receive or send online packages?</label>
-      <div class="radio-group">
-        <input type="radio" name="shipping" id="shipping-yes" value="yes" required>
-        <label for="shipping-yes">Yes</label>
-        <input type="radio" name="shipping" id="shipping-no" value="no">
-        <label for="shipping-no">No</label>
-      </div>
-
-      <label> Will you work from home today?</label>
-      <div class="radio-group">
-        <input type="radio" name="wfh" id="wfh-yes" value="yes" required>
-        <label for="wfh-yes">Yes</label>
-        <input type="radio" name="wfh" id="wfh-no" value="no">
-        <label for="wfh-no">No</label>
-      </div>
-
-      <label> Enter your Indian City or 6-digit PIN Code:</label>
-      <input type="text" name="location" placeholder="e.g. Kolkata or 700001" required>
-
-      <button type="submit">🌱 Get My EcoNudges</button>
+    <!-- Page 1: Location Input -->
+    <form id="location-form">
+      <label>Enter your location (city or pincode):</label>
+      <input type="text" id="locationInput" placeholder="e.g. Kolkata or 700001" required>
+      <button type="button" id="start-btn">Start</button>
     </form>
+
+    <!-- Page 2: Question + Nudge Response -->
+    <div id="question-box" style="display: none">
+      <h2 id="question-title"></h2>
+      <div class="radio-group">
+        <input type="radio" id="yes" name="answer" value="yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="answer" value="no">
+        <label for="no">No</label>
+      </div>
+      <button id="next-btn">Next</button>
+      <div id="nudge-response" class="card" style="margin-top: 20px; display: none"></div>
+    </div>
+
+    <!-- Final Page: Summary of All Nudges -->
+    <div id="results" style="display: none">
+      <h2>Your Personalized Eco Nudges</h2>
+      <div id="nudge-cards"></div>
+      <button onclick="location.reload()" style="margin-top: 20px;">Start Over</button>
+    </div>
   </div>
 
+  <script>
+    // === Eco Questions ===
+    const questions = [
+      "Did you take a bath today?",
+      "Did you do laundry today?",
+      "Did you drive today?",
+      "Did you use AC today?",
+      "Did you use heavy electrical devices today?",
+      "Did you eat meat today?",
+      "Did you consume packaged food today?",
+      "Did you recycle anything today?",
+      "Did you go shopping today?",
+      "Did you spend time outdoors today?",
+      "Did you receive any online shipping today?",
+      "Are you working from home today?"
+    ];
+
+    const keys = [
+      "bath", "laundry", "drive", "ac", "devices", "meat", "packaged",
+      "recycle", "shopping", "outdoors", "shipping", "wfh"
+    ];
+
+    let currentIndex = 0;
+    let answers = {};
+    let locationValue = "";
+    let allNudges = [];
+
+    function startQuestions(event) {
+      event.preventDefault();
+      const input = document.getElementById("locationInput").value.trim();
+      if (!input) {
+        alert("Please enter a location");
+        return;
+      }
+
+      locationValue = input;
+      document.getElementById("location-form").style.display = "none";
+      document.getElementById("question-box").style.display = "block";
+
+      showQuestion();
+    }
+
+    function showQuestion() {
+      document.getElementById("question-title").textContent = questions[currentIndex];
+      document.getElementById("yes").checked = false;
+      document.getElementById("no").checked = false;
+      document.getElementById("nudge-response").style.display = "none";
+
+      const nextBtn = document.getElementById("next-btn");
+      nextBtn.textContent = "Next";
+      nextBtn.onclick = submitAnswer;
+    }
+
+    function submitAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      if (!selected) {
+        alert("Please select an answer!");
+        return;
+      }
+
+      answers[keys[currentIndex]] = selected.value;
+
+      const mockNudges = {
+        bath: "Try shorter showers to save water!",
+        laundry: "Sun-drying clothes saves energy!",
+        drive: "Consider walking or cycling next time!",
+        ac: "Set your AC to 26°C for optimal efficiency",
+        devices: "Use heavy appliances during off-peak hours",
+        meat: "Try a meat-free meal tomorrow!",
+        packaged: "Buy fresh produce to reduce packaging waste",
+        recycle: "Great job recycling!",
+        shopping: "Bring reusable bags next time",
+        outdoors: "Spending time in nature is great!",
+        shipping: "Combine orders to reduce packaging",
+        wfh: "Working from home reduces emissions!"
+      };
+
+      const responseBox = document.getElementById("nudge-response");
+      const nudge = mockNudges[keys[currentIndex]];
+      responseBox.innerHTML = `✅ ${nudge}`;
+      responseBox.style.display = "block";
+      allNudges.push(nudge);
+
+      const nextBtn = document.getElementById("next-btn");
+      nextBtn.textContent = currentIndex < questions.length - 1 ? "Continue" : "See Results";
+      nextBtn.onclick = () => {
+        currentIndex++;
+        if (currentIndex < questions.length) {
+          showQuestion();
+        } else {
+          showResults();
+        }
+      };
+    }
+
+    function showResults() {
+      document.getElementById("question-box").style.display = "none";
+      document.getElementById("results").style.display = "block";
+
+      const cardContainer = document.getElementById("nudge-cards");
+      cardContainer.innerHTML = "";
+
+      allNudges.forEach((nudge, index) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `<strong>Tip ${index + 1}:</strong> ${nudge}`;
+        cardContainer.appendChild(div);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("start-btn").addEventListener("click", startQuestions);
+    });
+  </script>
 </body>
 </html>
