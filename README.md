@@ -26,6 +26,10 @@ EcoNudge solves this by giving instant **climate-smart nudges** to encourage con
 - ✅ Step 4: Based on your inputs + local climate, EcoNudge generates **3–5 personalized nudges**.
 
 ---
+## Screenshot
+<img width="1860" height="993" alt="Screenshot 2025-07-17 125431" src="https://github.com/user-attachments/assets/55ce4020-43f9-467f-8e6f-185161f98bc8" />
+
+---
 
 ## 🏆 Features
 
@@ -62,10 +66,14 @@ To empower every Indian to make small, daily climate-smart choices that collecti
 📊 City-wise eco dashboards
 
 🏫 Integration in schools, workplaces & communities
+
 ---
 ## 👩‍💻 Author
-Team : Techeletes
-🎁 Code for Bharat Hackathon 2025 Submission
+
+- **Team : Techeletes**
+- Team Members : Garima Mittal , Soumili Samantha , Srikari Obulshetty and Sasmitha Palanisamy
+- **🎁 Code for Bharat Hackathon 2025 Submission**
+
 ---
 ## 🤝 Contribution
 Pull requests are welcome! For significant changes, kindly open an issue first to discuss your proposal.
